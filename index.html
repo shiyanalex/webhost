@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded GPT Bot</title>
+    <title>Connections Game</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .word { display: inline-block; margin: 10px; padding: 10px; border: 1px solid #000; cursor: pointer; }
     </style>
 </head>
 <body>
-    <iframe width="100%" height="100%" allow="microphone *" src="https://www.gptbots.ai/widget/ewxxzkjbouwsu8rtnfsylke/chat.html"></iframe>
+    <h1>Connections Game</h1>
+    <div id="words-container"></div>
+    <button onclick="checkSelection()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        let wordsData = fetchFromDisc();
+        let words = wordsData.flatMap(group => group.words);
+        words = words.sort(() => Math.random() - 0.5);
+        let selectedWords = [];
+
+        function fetchFromDisc() {
+            return [
+                { pattern: "Colors", words: ["red", "blue", "green", "yellow"] },
+                { pattern: "Shapes", words: ["circle", "square", "triangle", "rectangle"] },
+                { pattern: "Planets", words: ["Mars", "Venus", "Earth", "Jupiter"] },
+                { pattern: "Elements", words: ["fire", "water", "earth", "air"] }
+            ];
+        }
+
+        function selectWord(word) {
+            if (selectedWords.includes(word)) {
+                selectedWords = selectedWords.filter(w => w !== word);
+            } else if (selectedWords.length < 4) {
+                selectedWords.push(word);
+            }
+            console.log(selectedWords);
+        }
+
+        function checkSelection() {
+            const foundGroup = wordsData.find(group =>
+                selectedWords.every(word => group.words.includes(word))
+            );
+            document.getElementById("result").textContent = foundGroup ? `Correct! Group: ${foundGroup.pattern}` : "Try again!";
+            selectedWords = [];
+        }
+
+        document.getElementById("words-container").innerHTML = words.map(word => 
+            `<span class='word' onclick='selectWord("${word}")'>${word}</span>`
+        ).join(" ");
+    </script>
 </body>
 </html>
