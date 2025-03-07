@@ -1,0 +1,109 @@
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .word-tile {
+    background-color: #2d2d2d;
+    border-color: #3d3d3d;
+    color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .word-tile:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .word-tile.selected {
+    background-color: #5A594E;
+    border-color: #7a7968;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .group-item {
+    background-color: #2d2d2d;
+    border: 1px solid #3d3d3d;
+}
+
+body.dark-mode .group-item.yellow {
+    background-color: #4d3c00;
+    border-color: #854d0e;
+    color: #fef3c7;
+}
+
+body.dark-mode .group-item.green {
+    background-color: #064e3b;
+    border-color: #16a34a;
+    color: #dcfce7;
+}
+
+body.dark-mode .group-item.blue {
+    background-color: #1e3a8a;
+    border-color: #3b82f6;
+    color: #dbeafe;
+}
+
+body.dark-mode .group-item.purple {
+    background-color: #581c87;
+    border-color: #9333ea;
+    color: #f3e8ff;
+}
+
+body.dark-mode .shuffle-button, 
+body.dark-mode .deselect-button,
+body.dark-mode .submit-button {
+    background-color: #333333;
+    color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .shuffle-button:hover, 
+body.dark-mode .deselect-button:hover,
+body.dark-mode .submit-button:hover {
+    background-color: #444444;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .shuffle-button:disabled, 
+body.dark-mode .deselect-button:disabled,
+body.dark-mode .submit-button:disabled {
+    background-color: #222222;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+body.dark-mode .modal-content {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dark-mode-toggle i {
+    color: #f0c420;
+}
+
+body.dark-mode .start-button {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+body.dark-mode .start-button:hover {
+    background-color: #2563eb;
+}
+
+body.dark-mode .message.error {
+    background-color: #7f1d1d;
+    color: #fee2e2;
+}
+
+body.dark-mode .message.success {
+    background-color: #14532d;
+    color: #dcfce7;
+}
